@@ -7,11 +7,9 @@ public class Administration {
      * @return array of Person-objects
      */
     public static Person[] createList(Person... persons){
-    Person[] personsList = persons;
-        return personsList;
+    Person[] people = persons;
+        return people;
     }
-
-
 
 
 
@@ -21,23 +19,44 @@ public class Administration {
      * @return String representation of the array of persons
      * @throws NullPointerException if the array of persons is null
      */
-    public static String outputList(Person[] list) throws NullPointerException{
-
-        return null;
+    public static String outputList(Person[] list) throws NullPointerException {
+        if (list == null) {
+            throw new NullPointerException("Error!!! array cannot be null.");
+        } else {
+            String res = "[";
+            for (int i = 0; i <list.length; i++) {
+                res = res + list[i].toString();
+            }
+            res = res + "]";
+            return res;
+        }
     }
-
 
 
 
     /**
      * sorts in ascending order a given list of persons by last name
-     * @param List array of persons to be sorted
+     * @param list array of persons to be sorted
      * @return sorted array of persons
      * @throws NullPointerException if the array of persons is null
      */
-    public static Person[] sortList(Person[] List) throws NullPointerException{
+    public static Person[] sortList(Person[] list) throws NullPointerException{
+        if (list == null) {
+            throw new NullPointerException("Error!!! array cannot be null.");
+        }else {
+            for (int j = 0; j <( list.length); j++) {  // bubble sort algorithm
+                for (int i = 0; i < list.length-1; i++) {
+                if (list[i].getNachname().compareTo(list[i+1].getNachname()) >= 0) {
+                    Person temp = list[i];
+                    list[i] = list[i+1];
+                    list[i+1] = temp;
+                }
+                }
+            }
+        }
 
-        return List;
+        System.out.println(outputList(list));
+        return list;
     }
 
 
@@ -50,8 +69,17 @@ public class Administration {
      * @throws NullPointerException  if the array of persons is null
      */
     public static int countFemale(Person[] list) throws NullPointerException{
-
-        return 0;
+        if (list == null) {
+            throw new NullPointerException("Error!!! array cannot be null.");
+        } else{
+            int count = 0;
+            for (int i = 0; i< list.length; i++){
+                if(list[i].getGeschlecht() == 'f'){
+                    count++;
+                }
+            }
+            return count;
+        }
     }
 
 

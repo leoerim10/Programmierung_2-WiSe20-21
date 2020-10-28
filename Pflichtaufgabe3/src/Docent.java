@@ -20,7 +20,7 @@ public class Docent extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + ", fachbereichNummer: " + fachbereichNummer;
+        return super.toString() + " fachbereichNummer: " + fachbereichNummer;
     }
 
 }

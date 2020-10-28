@@ -10,7 +10,11 @@ public class Person {
     public Person (String vorname, String nachname, char geschlecht){
         this.vorname = vorname;
         this.nachname = nachname;
-        this.geschlecht = geschlecht;
+        if(geschlecht == 'm' || geschlecht == 'f' || geschlecht == 'd'){
+            this.geschlecht = geschlecht;
+        }else{
+            throw new IllegalArgumentException("wrong input given, please enter the valid input!");
+        }
     }
 
 
@@ -34,22 +38,9 @@ public class Person {
         return geschlecht;
     }
 
-    public void setGeschlecht(char geschlecht) {
-        if(geschlecht == 'm'){
-            this.geschlecht = geschlecht;
-        }else if(geschlecht == 'f'){
-            this.geschlecht = geschlecht;
-        }else if(geschlecht == 'd'){
-            this.geschlecht = geschlecht;
-        }else{
-            throw new IllegalArgumentException("wrong input given, please enter the valid input!");
-        }
-
-    }
-
 
     @Override
     public String toString() {
-        return "vorname: " + vorname + " nachname: " + nachname  + ", geschlecht: " + geschlecht;
+        return  vorname + " " + nachname  + ", " ;
     }
 }

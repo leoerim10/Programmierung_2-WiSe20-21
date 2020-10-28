@@ -22,6 +22,6 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + ", matrikelNummer:" + matrikelNummer;
+        return super.toString() + " matriculation number:" + matrikelNummer;
     }
 }
