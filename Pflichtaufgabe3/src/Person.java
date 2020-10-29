@@ -5,9 +5,10 @@ public class Person {
     private char geschlecht;
 
     public Person(){
+        System.out.println("Warning, Constructor without parameter is called!!!");
     }
 
-    public Person (String vorname, String nachname, char geschlecht){
+    public Person (String vorname, String nachname, char geschlecht) throws IllegalArgumentException{
         this.vorname = vorname;
         this.nachname = nachname;
         if(geschlecht == 'm' || geschlecht == 'f' || geschlecht == 'd'){
@@ -41,6 +42,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return  vorname + " " + nachname  + ", " ;
+        return  vorname + " " + nachname;
     }
 }

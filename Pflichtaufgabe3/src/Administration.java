@@ -24,10 +24,10 @@ public class Administration {
             throw new NullPointerException("Error!!! array cannot be null.");
         } else {
             String res = "[";
-            for (int i = 0; i <list.length; i++) {
-                res = res + list[i].toString();
+            for (int i = 0; i <list.length-1; i++) {
+                res = res + list[i].toString() + ", ";
             }
-            res = res + "]";
+            res = res + list[list.length-1].toString() +"]";
             return res;
         }
     }
@@ -44,7 +44,8 @@ public class Administration {
         if (list == null) {
             throw new NullPointerException("Error!!! array cannot be null.");
         }else {
-            for (int j = 0; j <( list.length); j++) {  // bubble sort algorithm
+            // bubble sort algorithm
+            for (int j = 0; j <( list.length); j++) {
                 for (int i = 0; i < list.length-1; i++) {
                 if (list[i].getNachname().compareTo(list[i+1].getNachname()) >= 0) {
                     Person temp = list[i];
@@ -54,8 +55,6 @@ public class Administration {
                 }
             }
         }
-
-        System.out.println(outputList(list));
         return list;
     }
 

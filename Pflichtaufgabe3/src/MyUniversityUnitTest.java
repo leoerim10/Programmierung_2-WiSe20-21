@@ -1,87 +1,53 @@
 import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
-
 
 public class MyUniversityUnitTest {
 
     private Person p1, p2;
-    private Docent d1;
-    private Student s1, s2, s3;
+    private Docent d1, d2;
+    private Student s1, s2;
+
 
     @Before
-    public void setUp() {
-        p1 = new Person ("Martina", "Zuse", 'f');
-        p2 = new Person ("Angela", "Bart", 'f');
-
-        d1 = new Docent ("Martin", "Busch", 'm', 4);
-
-        s1 = new Student ("Thomas", "Bart", 'm', 343);
-        s2 = new Student ("Angela", "Mueller", 'f', 120);
-        s3 = new Student ("Jan", "Kaper", 'd', 123);
-    }
-
-    @Test
-    public void testCreateListStudents() {
-        assertArrayEquals(new Student[] {s1, s2, s3}, Administration.createList(s1, s2, s3));
-    }
-
-    @Test
-    public void testCreateListMiexed() {
-        assertArrayEquals(new Person[] {p1, d1, s2}, Administration.createList(p1, d1, s2));
-    }
-
-    @Test
-    public void testCreateListOne() {
-        assertArrayEquals(new Docent[] {d1}, Administration.createList(d1));
+    public void setUp(){
+        p1 = new Person ("Tina", "Mueller", 'f');
+        p2 = new Person ("Sam", "Bergmann", 'm');
+        d1 = new Docent ("Karl", "Schmidt", 'm', 4);
+        d2 = new Docent ("Adele", "Fisher", 'f', 3);
+        s1 = new Student ("Hans", "Weber", 'm', 999);
+        s2 = new Student ("Carla", "Meyer", 'f', 888);
     }
 
 
-    @Test
-    public void testSortListOne() {
-        Docent[] list = {d1};
-        assertArrayEquals(list, Administration.sortList(list));
-    }
-
-    @Test
-    public void testSortListBestCase() {
-        Person[] list = {s1, p2, d1};
-        assertArrayEquals(list, Administration.sortList(list));
-    }
-
-    @Test
-    public void testSortListHappyPath() {
-        Person[] list = {p1, d1, s1, p2};
-        Person[] erg = {s1, p2, d1, p1};
-        assertArrayEquals(erg, Administration.sortList(list));
-    }
-
+    //test when the input is given null
     @Test(expected = NullPointerException.class)
-    public void testSortListException() {
-        Administration.sortList(null);
+    public void emptyOutputListTest(){
+        Administration.outputList(null);
     }
 
+
+    // mixed case
+    // test if all types of objects are printed out properly, use one instance of each kind
     @Test
-    public void testCountFemaleNobody() {
-        assertEquals(0, Administration.countFemale(new Person[] {d1, s1, s3}));
+    public void correctInputCaseTest() {
+        assertEquals("[Carla Meyer, matriculation number: 888, Tina Mueller, Adele Fisher, fachbereichNummer: 3]", Administration.outputList(new Person[] {s2,p1,d2}));
     }
 
+
+    // false case
+    // test to see if any other string comparison holds
     @Test
-    public void testCountFemaleHappyPath() {
-        assertEquals(2, Administration.countFemale(new Person[] {p1, d1, s1, s2, s3}));
+    public void falseCaseTest() {
+        assertFalse((("[Hans Weber, Sam Bergmann, Karl, fachbererichNummer: 4]").equals(Administration.outputList(new Person[] {s1,p2,d1}))));
     }
 
+
+    //test for an empty array is given within the list
     @Test(expected = NullPointerException.class)
-    public void testCountFemaleException() {
-        Administration.countFemale(null);
+    public void emptyListTest(){
+        Administration.outputList(new Person[] {s1, null, p1});
     }
-
-    @Test
-    public void testOutputListNormal() {
-        assertEquals("[Martina Zuse, Angela Bart, Thomas Bart, matriculation number: 343]", Administration.outputList(new Person[] {p1, p2, s1}));
-    }
-
 
 
 }

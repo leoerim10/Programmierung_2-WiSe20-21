@@ -3,6 +3,7 @@ public class Student extends Person {
     private int matrikelNummer;
 
     public Student(){
+        System.out.println("Warning, Constructor without parameter is called!!!");
     }
 
     public Student (String vorname, String nachname, char geschlecht, int matrikelNummer){
@@ -22,6 +23,6 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + " matriculation number:" + matrikelNummer;
+        return super.toString() + ", matriculation number: " + matrikelNummer;
     }
 }

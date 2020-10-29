@@ -3,6 +3,7 @@ public class Docent extends Person {
     private int fachbereichNummer;
 
     public Docent(){
+        System.out.println("Warning, Constructor without parameter is called!!!");
     }
 
     public Docent (String vorname, String nachname, char geschlecht, int fachbereichNummer){
@@ -20,7 +21,7 @@ public class Docent extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + " fachbereichNummer: " + fachbereichNummer;
+        return super.toString() + ", fachbereichNummer: " + fachbereichNummer;
     }
 
 }
