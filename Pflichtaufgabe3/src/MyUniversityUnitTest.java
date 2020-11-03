@@ -43,7 +43,7 @@ public class MyUniversityUnitTest {
     }
 
 
-    //test for an empty array is given within the list
+    //test when an empty array is given within the list
     @Test(expected = NullPointerException.class)
     public void emptyListTest(){
         Administration.outputList(new Person[] {s1, null, p1});

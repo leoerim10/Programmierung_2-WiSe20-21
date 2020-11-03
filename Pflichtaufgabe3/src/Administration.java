@@ -44,7 +44,7 @@ public class Administration {
         if (list == null) {
             throw new NullPointerException("Error!!! array cannot be null.");
         }else {
-            // bubble sort algorithm
+            // sorting by bubble sort algorithm
             for (int j = 0; j <( list.length); j++) {
                 for (int i = 0; i < list.length-1; i++) {
                 if (list[i].getNachname().compareTo(list[i+1].getNachname()) >= 0) {
