@@ -7,9 +7,13 @@ public class UsedPart extends Component {
         System.out.println("Construct without parameter is called");
     }
 
-    public UsedPart(String description, double price, boolean aktiv,  int operatingHours) {
+    public UsedPart(String description, double price, boolean aktiv,  int operatingHours) throws IllegalArgumentException {
         super(description, price, aktiv);
-        this.operatingHours = operatingHours;
+        if(operatingHours<0){
+            throw new IllegalArgumentException("time cannot be negative.");
+        }else{
+            this.operatingHours = operatingHours;
+        }
     }
 
     public int getOperatingHours() {

@@ -9,8 +9,12 @@ public class Component {
         System.out.println("Warning, Constructor without parameter is called!!!");
     }
 
-    public Component (String description, double price, boolean aktiv){
-        this.price = price;
+    public Component (String description, double price, boolean aktiv) throws IllegalArgumentException{
+        if(price<0){
+            throw new IllegalArgumentException("price for a component cannot be negative.");
+        }else{
+            this.price = price;
+        }
         this.aktiv = aktiv;
         this.description = description;
     }
