@@ -24,6 +24,7 @@ public class ComponentManagerUnitTest {
         p10 = new UsedPart("case", 105, true, 9);
     }
 
+
     @Test
     public void testGetTotalNumberNormal() {
         ComponentManager comp = new ComponentManager();

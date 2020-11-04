@@ -3,11 +3,12 @@ public class NewPart extends Component{
     private boolean packaget;
 
     public NewPart(){
-        System.out.println("constructor without parameter is called");
+        super();
+        System.out.println("Construct without parameter is called");
     }
 
     public NewPart(String description, double price, boolean aktiv, boolean packaget){
-        super(price, aktiv, description);
+        super(description, price, aktiv);
         this.packaget = packaget;
     }
 

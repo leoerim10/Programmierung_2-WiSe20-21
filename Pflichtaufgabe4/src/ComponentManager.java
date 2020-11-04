@@ -1,19 +1,11 @@
+import javax.swing.*;
+
 public class ComponentManager {
 
-    Component [] components = new Component[10];
-
-    public ComponentManager(){
-        System.out.println("constructor without parameters!!!!!!!");
+    private Component [] components = new Component[10]; // components should hold 10 elements, by design.
+    public ComponentManager() {
+        System.out.println("Parameter without constructor is called!!!");
     }
-
-    public ComponentManager(Component [] components) throws IllegalArgumentException{
-        if(components.length >= 10){
-            throw new IllegalArgumentException("arrays length cannot be longer than 10");
-        }else{
-            this.components = components;
-        }
-    }
-
 
 
     /**
@@ -24,11 +16,10 @@ public class ComponentManager {
         for(int i = 0; i < this.components.length; i++) {
             if (this.components[i] == null) {
                 this.components[i] = part;
-                break;
-            }else{
-                throw new ArrayIndexOutOfBoundsException("No new parts can be added. The array is full.");
+                return;
             }
         }
+        throw new ArrayIndexOutOfBoundsException("No new parts can be added. The array is full.");
     }
 
 
@@ -60,7 +51,9 @@ public class ComponentManager {
             throw new NullPointerException("Error!!! Null array");
         } else {
             for (int i = 0; i < this.components.length; i++) {
-                sum++;
+                if(components[i] != null){
+                    sum++;
+                }
             }
             return sum;
         }
@@ -72,6 +65,16 @@ public class ComponentManager {
      * @return the component if found else returns null
      */
     public Component searchComponent(String name){
+        for(int i = 0; i < this.components.length; i++) {
+            if( this.components[i] == null){   // checks if the component is null
+                return null;
+            }
+            else if (name == this.components[i].getDescription()) {
+                return this.components[i];
+            }else{
+                continue; // if the compared String is not same
+            }
+        }
         return null;
     }
 
@@ -81,7 +84,17 @@ public class ComponentManager {
      * @return the total amount
      */
     public double calculatePrice(){
-        return 0;
+        double sum = 0;
+        if (this.components == null) {
+            throw new NullPointerException("Error!!! Null array");
+        } else {
+            for (int i = 0; i < this.components.length; i++) {
+                if(components[i] != null){
+                    sum += components[i].getPrice();
+                }
+            }
+        }
+        return sum;
     }
 
 
@@ -91,7 +104,17 @@ public class ComponentManager {
      * @return the total amount
      */
     public double calculatePrice(boolean active){
-        return 0;
+        double sum = 0;
+        if (this.components == null) {
+            throw new NullPointerException("Error!!! Null array");
+        } else {
+            for (int i = 0; i < this.components.length; i++) {
+                if(components[i] != null && components[i].isAktiv() == active){
+                    sum = sum+ components[i].getPrice();
+                }
+            }
+        }
+        return sum;
     }
 
 
@@ -100,6 +123,16 @@ public class ComponentManager {
      * @return the total time
      */
     public int calculateOperatingHours(){
-        return 0;
+        int sum = 0;
+        if (this.components == null) {
+            throw new NullPointerException("Error!!! Null array");
+        } else {
+            for (int i = 0; i < this.components.length; i++) {
+                if(components[i] != null && components[i] instanceof UsedPart){
+                    sum += ((UsedPart) components[i]).getOperatingHours();
+                }
+            }
+            return sum;
+        }
     }
 }

@@ -1,15 +1,15 @@
 public class Component {
 
     private double price;
-    private  boolean aktiv;
+    private final boolean aktiv;
     private String description;
 
-
     public Component(){
+        this.aktiv = false; //a blank final instance variable must be definitely assigned at the end of every constructor.
         System.out.println("Warning, Constructor without parameter is called!!!");
     }
 
-    public Component (double price,  boolean aktiv, String description){
+    public Component (String description, double price, boolean aktiv){
         this.price = price;
         this.aktiv = aktiv;
         this.description = description;
@@ -24,7 +24,7 @@ public class Component {
     }
 
     public boolean isAktiv() {
-        return aktiv;
+        return this.aktiv;
     }
 
     public String getDescription() {
