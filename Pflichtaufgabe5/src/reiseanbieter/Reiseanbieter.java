@@ -2,6 +2,14 @@ package reiseanbieter;
 
 import kunden.Kunde;
 
+
+/**
+ * Schnittstelle reiseanbieter.Reiseanbieter <br>
+ * Klassen, die diese Schnittstelle implementieren sind die Services fuer die Kunden
+ *
+ * @author Sameer Dhimal, Wojciech Maximilian Frackowski
+ * @version 1.2
+ */
 public interface Reiseanbieter {
 
     public static final int EGAL = 0;
@@ -91,10 +99,10 @@ public interface Reiseanbieter {
 
 
     /**
-     *
-     * @param k
-     * @param transport
-     * @return
+     *liefert die Dauerzeit fuer die Reise
+     * @param k der Kunde
+     * @param transport Art des Transportmittels
+     * @return die Dauerzeit
      */
     public abstract double dauerErfragen(Kunde k, int transport);
 }

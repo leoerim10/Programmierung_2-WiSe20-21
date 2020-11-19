@@ -7,9 +7,12 @@ public class Bahn implements Transportmittel {
     public Bahn() {
     }
 
-    public Bahn(double geschwindigkeit, int anzahlPlaetze){
+    public Bahn(double geschwindigkeit, int anzahlPlaetze) throws IllegalArgumentException {
         this.anzahlPlaetze = anzahlPlaetze;
-        this.geschwindigkeit = geschwindigkeit;
+        this.setGeschwindigkeit(geschwindigkeit);
+        if(anzahlPlaetze < 1){
+            throw new IllegalArgumentException("Anazahl pläze kann nicht 0 oder Negativ beim Erzuegen eines neues Bus sein.");
+        }
     }
 
 
@@ -19,6 +22,9 @@ public class Bahn implements Transportmittel {
     }
 
     public void setGeschwindigkeit(double geschwindigkeit) {
+        if(geschwindigkeit<0){
+            throw new IllegalArgumentException("Geschwindigkeit kann nicht negative sein.");
+        }
         this.geschwindigkeit = geschwindigkeit;
     }
 
