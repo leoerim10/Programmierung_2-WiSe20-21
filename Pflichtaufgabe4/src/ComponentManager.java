@@ -3,11 +3,11 @@ import javax.swing.*;
 public class ComponentManager {
 
     private Component [] components = new Component[10]; // components should hold 10 elements, by design.
+
+
     public ComponentManager() {
-        System.out.println("Parameter without constructor is called!!!");
     }
-
-
+    
     /**
      * add the bought part to the component array
      * @param part parts which have been bought
@@ -129,7 +129,7 @@ public class ComponentManager {
         } else {
             for (int i = 0; i < this.components.length; i++) {
                 if(components[i] != null && components[i] instanceof UsedPart){
-                    sum += ((UsedPart) components[i]).getOperatingHours();
+                    sum += ((UsedPart) components[i]).getOperatingHours(); //operating hours is attribute of used parts.
                 }
             }
             return sum;
