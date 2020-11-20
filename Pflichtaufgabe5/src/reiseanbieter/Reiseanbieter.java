@@ -6,7 +6,6 @@ import kunden.Kunde;
 /**
  * Schnittstelle reiseanbieter.Reiseanbieter <br>
  * Klassen, die diese Schnittstelle implementieren sind die Services fuer die Kunden
- *
  * @author Sameer Dhimal, Wojciech Maximilian Frackowski
  * @version 1.2
  */

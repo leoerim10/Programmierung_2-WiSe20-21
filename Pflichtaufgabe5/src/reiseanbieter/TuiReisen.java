@@ -3,7 +3,7 @@ package reiseanbieter;
 import kunden.Kunde;
 import transportmittel.Bahn;
 import transportmittel.Bus;
-import java.text.DecimalFormat;
+
 
 public class TuiReisen implements Reiseanbieter {
 
@@ -40,38 +40,30 @@ public class TuiReisen implements Reiseanbieter {
 
     @Override
     public boolean buchen(Kunde k, int transport) {
-         /*   //wenn das ausgewaehlte Transportmittel egal ausgewaehlt ist
-            // wird der erste Prioritaet Bahn sein sonst wird es Bus.
-            if ((transport == EGAL || transport == BAHN) && (this.getBahn().getAnzahlPlaetze() >= 1)) {
-                this.getBahn().setAnzahlPlaetze(this.getBahn().getAnzahlPlaetze() - 1);
-                return true;
-            } else if ((transport == EGAL || transport == BUS) && this.getBus().getAnzahlPlaetze() >= 1) {
-                this.getBus().setAnzahlPlaetze(this.getBus().getAnzahlPlaetze() - 1);
-                return true;
-            } else {
-                return false;
-            }*/
-
         if(transport==BUS) {
             if(this.getBus().getAnzahlPlaetze()>=1) {
-                k.empfangeNachricht("Buchung Erfolgreicht\n");
+                k.empfangeNachricht("gebucht!!!\n");
                 this.getBus().setAnzahlPlaetze(this.getBus().getAnzahlPlaetze() - 1);
                 return true;
             }
         }else if(transport==BAHN) {
             if(this.getBahn().getAnzahlPlaetze()>=1) {
-                k.empfangeNachricht("Buchung Erfolgreicht\n");
+                k.empfangeNachricht("gebucht!!!\n");
                 this.getBahn().setAnzahlPlaetze(this.getBahn().getAnzahlPlaetze() - 1);
                 return true;
             }
         }else if(transport==EGAL) {
-            if(this.getBahn().getAnzahlPlaetze()>=1 || this.getBus().getAnzahlPlaetze()>=1)  {
-                k.empfangeNachricht("Buchung Erfolgreicht\n");
-                return true;
+            //wenn das ausgewaehlte Transportmittel egal ist
+            // wird der erste Prioritaet Bahn sein sonst wird es den Bus.
+            if(this.getBahn().getAnzahlPlaetze()>=1){
+                this.getBahn().setAnzahlPlaetze(this.getBahn().getAnzahlPlaetze() - 1);
+            }else if(this.getBus().getAnzahlPlaetze()>=1) {
+                this.getBus().setAnzahlPlaetze(this.getBus().getAnzahlPlaetze() - 1);
             }
-
+            k.empfangeNachricht("gebucht!!!\n");
+            return true;
         }else {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Falsch eingegeben!!!! Transportmittel fuer die eingegebene Zahl existiert nicht.");
         }
         return false;
 
@@ -81,25 +73,43 @@ public class TuiReisen implements Reiseanbieter {
 
     @Override
     public boolean buchen(Kunde[] gruppe, int transport) {
-        if(transport != BAHN || transport != BUS || transport != EGAL){
-            throw new IllegalArgumentException("Falsch eingegeben!!!! Transportmittel fuer die eingegebene Zahl existiert nicht.");
-        }else {
-            //wenn das ausgewaehlte Transportmittel egal ausgewaehlt ist
-            // wird der erste Prioritaet Bahn sein sonst wird es Bus.
-            if ((transport == EGAL || transport == BAHN) && (this.getBahn().getAnzahlPlaetze() >= 1)) {
-                for ( int i = 0; i < gruppe.length; i++){
-                    this.getBahn().setAnzahlPlaetze(this.getBahn().getAnzahlPlaetze() - 1);
-                }
-                return true;
-            } else if ((transport == EGAL || transport == BAHN) && this.getBus().getAnzahlPlaetze() >= 1) {
-                for ( int i = 0; i < gruppe.length; i++){
+        if(transport==BUS) {
+            if(this.getBus().getAnzahlPlaetze()>=1) {
+                for (int i = 0; i < gruppe.length; i++) {
+                    gruppe[i].empfangeNachricht("gebucht!!!\n");
                     this.getBus().setAnzahlPlaetze(this.getBus().getAnzahlPlaetze() - 1);
                 }
                 return true;
-            } else {
-                return false;
             }
+        }else if(transport==BAHN) {
+            if(this.getBahn().getAnzahlPlaetze()>=1) {
+                for (int i = 0; i < gruppe.length; i++) {
+                    gruppe[i].empfangeNachricht("gebucht!!!\n");
+                    this.getBahn().setAnzahlPlaetze(this.getBahn().getAnzahlPlaetze() - 1);
+                }
+                return true;
+            }
+        }else if(transport==EGAL) {
+            //wenn das ausgewaehlte Transportmittel egal ist
+            // wird der erste Prioritaet Bahn sein sonst wird es den Bus.
+            if(this.getBahn().getAnzahlPlaetze()>=1){
+                for (int i = 0; i < gruppe.length; i++) {
+                    gruppe[i].empfangeNachricht("gebucht!!!\n");
+                    this.getBahn().setAnzahlPlaetze(this.getBahn().getAnzahlPlaetze() - 1);
+                }
+                return true;
+            }else if(this.getBus().getAnzahlPlaetze()>=1) {
+                for (int i = 0; i < gruppe.length; i++) {
+                    gruppe[i].empfangeNachricht("gebucht!!!\n");
+                    this.getBus().setAnzahlPlaetze(this.getBus().getAnzahlPlaetze() - 1);
+                }
+                return true;
+            }
+        }else {
+            throw new IllegalArgumentException("Falsch eingegeben!!!! Transportmittel fuer die eingegebene Zahl existiert nicht.");
         }
+        return false;
+
     }
 
 
@@ -119,25 +129,17 @@ public class TuiReisen implements Reiseanbieter {
 
     @Override
     public boolean stornieren(Kunde k, int transport) {
-        /*if(buchen(k, transport)){
-            if(transport == BUS) {
-                this.getBus().setAnzahlPlaetze(this.getBus().getAnzahlPlaetze() + 1);
-                return true;
-            }else if(transport == BAHN){
-                this.getBahn().setAnzahlPlaetze(this.getBahn().getAnzahlPlaetze() + 1);
-            }else if(transport == EGAL){
-                k.empfangeNachricht("Transportmittel muss festgelegt werden!!!");
-            }
-        }
-        return false; */
         boolean res = false;
         if(buchen(k,transport)==true) {
-            if(transport==1 || transport==2 ) {
-
-                res=true;
+            if (transport == BAHN) {
+                this.getBahn().setAnzahlPlaetze(this.getBahn().getAnzahlPlaetze() + 1);
+                res = true;
+            } else if (transport == BUS) {
+                 this.getBus().setAnzahlPlaetze(this.getBus().getAnzahlPlaetze() + 1);
+                res = true;
+            } else if (transport == EGAL) {
+                k.empfangeNachricht("Transportmittel muss festgelegt werden");
             }
-        }else if(transport==0) {
-            k.empfangeNachricht("Transportmittel muss festgelegt werden");
         }
         return res;
     }
@@ -146,24 +148,29 @@ public class TuiReisen implements Reiseanbieter {
 
     @Override
     public boolean stornieren(Kunde[] k, int transport) {
-        if(buchen(k, transport)){
-            if(transport == BUS) {
+        if(buchen(k, transport)) {
+            if(transport == BAHN) {
                 for (int i = 0; i > k.length; i++) {
-                    this.getBus().setAnzahlPlaetze(this.getBus().getAnzahlPlaetze() + 1);
-                }
-                return true;
-            }else if (transport == BAHN){
-                for (int i = 0; i > k.length; i++) {
+                    k[i].empfangeNachricht("storniert!!!!\n");
                     this.getBahn().setAnzahlPlaetze(this.getBahn().getAnzahlPlaetze() + 1);
                 }
                 return true;
+            }else if(transport == BUS){
+                for (int i = 0; i > k.length; i++) {
+                    k[i].empfangeNachricht("storniert!!!!\n");
+                    this.getBus().setAnzahlPlaetze(this.getBus().getAnzahlPlaetze() + 1);
                 }
-            }else if(transport == EGAL){
+                return true;
+            }else if( transport == 0){
                 for(int i= 0; i> k.length; i++) {
-                    k[i].empfangeNachricht("Transportmittel muss festgelegt werden!!!");
+                    k[i].empfangeNachricht("Die Buchung kann nicht storniert werden");
                 }
+            }else {
+                return false;
             }
-
+        }else {
+            return false;
+        }
         return false;
     }
 
@@ -185,23 +192,17 @@ public class TuiReisen implements Reiseanbieter {
 
     @Override
     public double preisErfragen(Kunde k, int transport) {
-        int res = 0;
-        if(transport <0 || transport > 2){
-            throw new IllegalArgumentException("Falsch eingegeben!!!! Transportmittel fuer die eingegebene Zahl existiert nicht.");
-        }else {
+        int res=0;
             if (transport == BUS) {
                 res = BUSPREIS;
             } else if (transport == BAHN) {
                 res = BAHNPREIS;
             } else if (transport == EGAL) {
-               if(BUSPREIS<BAHNPREIS){
-                   res = BUSPREIS;
-               }else{
-                   res = BAHNPREIS;
-               }
+                res = BUSPREIS; // guenstigere Transportmittel
+            }else{
+                throw new IllegalArgumentException("Falsch eingegeben!!!! Transportmittel fuer die eingegebene Zahl existiert nicht.");
             }
-        }
-        k.empfangeNachricht("" + res);
+        k.empfangeNachricht("Der Preis ist" + res);
         return res;
     }
 
@@ -211,27 +212,25 @@ public class TuiReisen implements Reiseanbieter {
     public double dauerErfragen(Kunde k, int transport) {
         double dauerzeitBus =  entfernungBus/this.getBus().getGeschwindigkeit();
         double dauerzeitBahn =  entfernungBahn/this.getBahn().getGeschwindigkeit();
-        DecimalFormat df = new DecimalFormat("#.##");
-        double res=0;
-        if(transport <0 || transport > 2){
-            throw new IllegalArgumentException("Falsch eingegeben!!!! Transportmittel fuer die eingegebene Zahl existiert nicht.");
-        }else {
-            if (transport == BUS) {
-                res = Double.valueOf(df.format(dauerzeitBus));
-
-            } else if (transport == BAHN) {
-                res = Double.valueOf(df.format(dauerzeitBahn));
-
-
-            } else if (transport == EGAL) {
-                if (dauerzeitBahn < dauerzeitBus) {
-                    res = Double.valueOf(df.format(dauerzeitBahn));
-                } else {
-                    res = Double.valueOf(df.format(dauerzeitBus));
+        double res = 0;
+        if(transport == BUS) {
+            res = Math.round(entfernungBus / bus.getGeschwindigkeit() * 100.0) / 100.0;
+            return res;
+        } else if(transport == BAHN) {
+            res = Math.round(entfernungBahn / bahn.getGeschwindigkeit() * 100.0) / 100.0;
+            return res;
+        } else if(transport == EGAL) {
+                if(dauerzeitBahn<dauerzeitBus){
+                    res = Math.round(entfernungBahn / bahn.getGeschwindigkeit() * 100.0) / 100.0;
+                }else{
+                    res = Math.round(entfernungBus / bus.getGeschwindigkeit() * 100.0) / 100.0;
                 }
-            }
+        }else{
+            throw new IllegalArgumentException("Falsch eingegeben!!!! Transportmittel fuer die eingegebene Zahl existiert nicht");
         }
         k.empfangeNachricht("es daurt " + res + "Stunden.");
         return res;
     }
+
+
 }

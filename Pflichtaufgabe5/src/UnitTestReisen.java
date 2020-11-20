@@ -1,13 +1,5 @@
-import static org.junit.Assert.*;
-
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.BeforeClass;
-
-import reiseanbieter.Reiseanbieter;
-import reiseanbieter.TuiReisen;
-import transportmittel.*;
-import kunden.*;
+import org.junit.Test;
 
 public class UnitTestReisen {
 
