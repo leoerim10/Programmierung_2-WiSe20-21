@@ -1,5 +1,13 @@
+import kunden.Privatperson;
+import kunden.Student;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import reiseanbieter.Reiseanbieter;
+import reiseanbieter.TuiReisen;
+import transportmittel.Bahn;
+import transportmittel.Bus;
+
+import static org.junit.Assert.*;
 
 public class UnitTestReisen {
 
