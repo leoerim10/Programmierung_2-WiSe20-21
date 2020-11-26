@@ -8,16 +8,14 @@ public class Queue extends Liste implements QueueSchnittstelle{
 
     @Override
     public void enqueue(int x) {
+
         Node n = new Node(x);
-        Node curr = this.start; // temporary node
-        if(this.start == null){ // start is the first element of the queue
+        if(this.start == null){ //start is the first element of the queue
             this.start = n;
-        }else{
-            while(curr.next != null){
-                curr = curr.next; // overwrite curr with its next node
-            }
-            curr.next = n; // curr is the last element now, next element is null
+        } else {
+            this.end.next = n;  // end is the last element of the queue
         }
+        this.end = n;
     }
 
     @Override
@@ -27,6 +25,10 @@ public class Queue extends Liste implements QueueSchnittstelle{
         }
         Node temp = this.start;
         this.start = this.start.next;
+
+        if(this.start==null){
+            this.end = null;
+        }
         return temp.data;
     }
 

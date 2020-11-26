@@ -4,9 +4,19 @@
  */
 public class Liste {
     Node start = null;
+    Node end = null;
 
    public Liste(){
    }
+
+   /**
+    * check if the given data structure is empty
+    * @return true if empty
+    */
+   public boolean isEmpty(){
+      return this.start == null;
+   }
+
 
    /**
     * finds the size of the given data structure by counting next node recursively
@@ -20,15 +30,6 @@ public class Liste {
          current = current.next;
       }
       return counter;
-   }
-
-
-   /**
-    * check if the given data structure is empty
-    * @return true if empty
-    */
-   public boolean isEmpty(){
-      return this.start == null;
    }
 
 }

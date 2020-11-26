@@ -24,7 +24,9 @@ public class ListenTest {
         q2 = new Queue(); // test starting with an empty queue
     }
 
+
 /*----------------------------------------Stack test-----------------------------------------------------*/
+
 
     @Test
     public void newStackPush() {  // add element to a complete new stack

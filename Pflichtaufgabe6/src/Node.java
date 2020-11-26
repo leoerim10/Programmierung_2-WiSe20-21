@@ -1,5 +1,4 @@
 public class Node {
-
     int data;
     Node next;
 
@@ -7,5 +6,4 @@ public class Node {
         data = d;
         next = null;
     }
-
 }
