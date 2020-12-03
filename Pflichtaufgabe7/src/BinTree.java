@@ -76,15 +76,13 @@ public class BinTree {
      * @param k given node
      * @return true if the tree is sorted
      */
-    public boolean isSorted(BinNode k) throws NullPointerException{
-        if ( k == null){
-            throw new NullPointerException("The tree is empty!!!");
-        }
+    public boolean isSorted(BinNode k){
         if(k != null){
             if(!isSorted(k.left)){
                 return false;
             }
-            if (k.data <= prev){
+
+            if (k.data <= prev){ // prev = int.minvalue first time, second time..
                 return false;
             }
             prev = k.data;
@@ -98,7 +96,10 @@ public class BinTree {
      * wrapper method for isSorted(BinNode k)
      * @return true if the tree is sorted
      */
-    public boolean isSorted(){
+    public boolean isSorted() throws NullPointerException{
+        if (root == null){
+            throw new NullPointerException("The tree is empty");
+        }
         return isSorted(root);
     }
 
@@ -109,7 +110,7 @@ public class BinTree {
      * @return true if it is successfully removed
      */
     public boolean removeNode(int value) {
-        return true;
+        return (removeNode(getRoot(), value) != null);
     }
 
 
@@ -118,7 +119,7 @@ public class BinTree {
      * the tree should remain sorted after a node is deleted
      * @param k current node
      * @param value value of the node to be removed
-     * @return removed node0
+     * @return removed node
      * @throws NullPointerException if removed node is not presented in the tree
      */
     public BinNode removeNode(BinNode k, int value) throws NullPointerException{
@@ -200,7 +201,6 @@ public class BinTree {
 
 
 
-
     public void printBinTree(BinNode b){
         if(b!=null){
             System.out.print("(");
@@ -214,6 +214,5 @@ public class BinTree {
     public void printBinTree() { //Verpackungsmethode
         printBinTree(root);
     }
-
 
 }
