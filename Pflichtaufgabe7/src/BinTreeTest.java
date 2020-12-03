@@ -70,7 +70,7 @@ public class BinTreeTest {
 
     @Test
     public void isSortedWithOneRoot() { // sorting tree with a single root
-        assertEquals(true, tree2.isSorted());
+        assertTrue(tree2.isSorted());
     }
 
 
@@ -88,13 +88,13 @@ public class BinTreeTest {
         //3rd level
         root3.left.left.right = new BinNode(3);
         root3.left.left.left = new BinNode(1);
-        assertEquals(true, tree3.isSorted());
+        assertTrue(tree3.isSorted());
     }
 
 
     @Test
     public void isSorted2() {// sorting tree from Abb.2
-        assertEquals(false, tree4.isSorted());
+        assertFalse(tree4.isSorted());
 
     }
 
@@ -107,9 +107,61 @@ public class BinTreeTest {
 
     @Test
     public void removeNodeSingleRoot() { // removing node from a tree with a root
-        assertEquals(false, tree2.removeNode(1));
+        assertFalse(tree2.removeNode(1));
     }
 
+
+    /*@Test
+    public void removeNode3() { //removing a node from a tree form Abb.1
+        assertTrue(tree3.removeNode(3));
+        assertTrue(tree3.isSorted());
+    }
+
+    @Test
+    public void removeNode9() { //removing a node from a tree form Abb.1
+        root3 = new BinNode(7);
+        tree3 = new BinTree(root3);
+        root3.right = new BinNode(9);
+        root3.left = new BinNode(4);
+        root3.right.left = new BinNode(8);
+        root3.left.right = new BinNode(5);
+        root3.left.left = new BinNode(2);
+        root3.left.left.right = new BinNode(3);
+        root3.left.left.left = new BinNode(1);
+        assertTrue(tree3.removeNode(9));
+        assertTrue(tree3.isSorted());
+    }
+
+    @Test
+    public void removeNode4() { //removing a node from a tree form Abb.1
+        root3 = new BinNode(7);
+        tree3 = new BinTree(root3);
+        root3.right = new BinNode(9);
+        root3.left = new BinNode(4);
+        root3.right.left = new BinNode(8);
+        root3.left.right = new BinNode(5);
+        root3.left.left = new BinNode(2);
+        root3.left.left.right = new BinNode(3);
+        root3.left.left.left = new BinNode(1);
+        assertTrue(tree3.removeNode(4));
+        assertTrue(tree3.isSorted());
+    }
+
+    @Test
+    public void removeNode7() { //removing a node from a tree form Abb.1
+        root3 = new BinNode(7);
+        tree3 = new BinTree(root3);
+        root3.right = new BinNode(9);
+        root3.left = new BinNode(4);
+        root3.right.left = new BinNode(8);
+        root3.left.right = new BinNode(5);
+        root3.left.left = new BinNode(2);
+        root3.left.left.right = new BinNode(3);
+        root3.left.left.left = new BinNode(1);
+        assertTrue(tree3.removeNode(7));
+        assertTrue(tree3.isSorted());
+    }
+*/
 
     @Test
     public void removeNodeSortedTree() { //removing a node from a tree form Abb.1
@@ -126,11 +178,13 @@ public class BinTreeTest {
         assertEquals(true, tree3.isSorted());
     }
 
-   
+
+
 
     @Test(expected = NullPointerException.class)
-    public void removeNode10() { // removing a node from Abb. 1 which do not exist
-        tree1.removeNode(10);
+    public void removeNode10() { // removing a node from Abb. 1
+        tree3.removeNode(10);
+        assertTrue(tree3.isSorted());
     }
 
 

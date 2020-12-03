@@ -6,7 +6,6 @@
 public class BinTree {
 
     private BinNode root = null;
-    private int prev = Integer.MIN_VALUE;
 
     public BinTree(){
         root = null;
@@ -16,35 +15,23 @@ public class BinTree {
         root = rn;
     }
 
-
     public BinNode getRoot() {
         return root;
     }
 
 
-
-
-
     /**
-     * counts the nodes of the tree
-     * @param k given node
-     * @return the total number of nodes in a tree
+     * wrapper method for countTwoChildrenNodes(BinNode k)
+     * @return the number of nodes
      */
-    public int countNodes(BinNode k){
-        int counter = 0;
-        if(k != null){
-            counter = 1 + countNodes(k.left) + countNodes(k.right);
-        }
-        return counter;
+    public int countTwoChildrenNodes(){
+        return countTwoChildrenNodes(root);
     }
-
-
-
 
 
     /**
      * counts the number of nodes of the binary tree having two children nodes
-     * @param k given node
+     * @param k current node
      * @return the number of nodes
      */
     public int countTwoChildrenNodes(BinNode k){
@@ -59,48 +46,34 @@ public class BinTree {
         return count;
     }
 
-    /**
-     * wrapper method for countTwoChildrenNodes(BinNode k)
-     * @return the number of nodes
-     */
-    public int countTwoChildrenNodes(){
-        return countTwoChildrenNodes(root);
-    }
-
-
-
-
-
-    /**
-     * checks either the binary tree is sorted or not
-     * @param k given node
-     * @return true if the tree is sorted
-     */
-    public boolean isSorted(BinNode k){
-        if(k != null){
-            if(!isSorted(k.left)){
-                return false;
-            }
-
-            if (k.data <= prev){ // prev = int.minvalue first time, second time..
-                return false;
-            }
-            prev = k.data;
-            return isSorted(k.right);
-        }
-        return true;
-    }
-
 
     /**
      * wrapper method for isSorted(BinNode k)
      * @return true if the tree is sorted
      */
     public boolean isSorted() throws NullPointerException{
-        if (root == null){
-            throw new NullPointerException("The tree is empty");
+        if(root == null) {
+            throw new NullPointerException();
         }
-        return isSorted(root);
+        return isSorted(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+
+    /**
+     *  checks either the binary tree is sorted or not
+     * @param k current node
+     * @param min minimum value of integer
+     * @param max maximum value of integer
+     * @return true if the tree is sorted
+     */
+    public boolean isSorted(BinNode k, int min, int max){
+        if(k == null) {
+            return true;
+        }
+        if (k.data < min || k.data > max) {
+            return false;
+        }
+        return (isSorted(k.left, min, k.data-1) && isSorted(k.right, k.data+1, max));
     }
 
 
@@ -144,6 +117,8 @@ public class BinTree {
         }
         return k;
     }
+
+
     /**
      * return the minimum value from the tree
      * @param k given node
@@ -154,65 +129,6 @@ public class BinTree {
             return minValue(k.left);
         }
         return k.data;
-    }
-
-    /**
-     * insert a node in a binary tree
-     * @param neu the new node to be inserted
-     * @param k given node
-     *   TODO document exception
-     */
-    private void insertNode(BinNode neu, BinNode k)throws IllegalArgumentException{
-        if(k != null){
-            if(neu.data < k.data){
-                if(k.left == null){
-                    k.left = neu;
-                } else {
-                    insertNode(neu, k.left);
-                }
-            }
-            if (neu.data > k.data){
-                if(k.right == null){
-                    k.right = neu;
-                }
-                else{
-                    insertNode(neu, k.right);
-                }
-            }
-            if(neu.data == k.data){
-                throw new IllegalArgumentException("node with this data already exists");
-            }
-        } else {
-            root = neu;
-        }
-    }
-
-
-    /**
-     * wrapper method for insertNode(BinNode neu, BinNode k)
-     * includes the date for the new node that is inserted or to be inserted
-     * @param data the date for the new node
-     */
-    public void insertNode(int data){
-        BinNode n = new BinNode(data);
-        insertNode(n, root);
-    }
-
-
-
-
-    public void printBinTree(BinNode b){
-        if(b!=null){
-            System.out.print("(");
-            printBinTree(b.left);
-            System.out.print(" " + b.data + " ");
-            printBinTree(b.right);
-            System.out.print(")");
-        }
-    }
-
-    public void printBinTree() { //Verpackungsmethode
-        printBinTree(root);
     }
 
 }
