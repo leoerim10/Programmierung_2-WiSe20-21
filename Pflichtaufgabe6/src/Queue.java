@@ -42,7 +42,7 @@ public class Queue extends Liste implements QueueSchnittstelle{
 
     @Override
     public boolean isEmpty() {
-        return super.isEmpty();
+        return super.isEmpty() && (this.end == null);
     }
 
     @Override

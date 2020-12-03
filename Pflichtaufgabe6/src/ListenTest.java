@@ -30,10 +30,9 @@ public class ListenTest {
 
     @Test
     public void newStackPush() {  // add element to a complete new stack
-        Stack s3 = new Stack();
-        s3.push(1);
-        s3.push(2);
-        assertEquals("** 2 **\n** 1 **\n*******", s3.toString());
+        s2.push(1);
+        s2.push(2);
+        assertEquals("** 2 **\n** 1 **\n*******", s2.toString());
     }
 
     @Test
@@ -126,7 +125,7 @@ public class ListenTest {
 
 
     @Test
-    public void existingQueuePush() {  // add element to an existing queue
+    public void existingQueueEnque() {  // add element to an existing queue
         q1.enqueue(10);
         q1.enqueue(15);
         assertEquals("<--- 4 5 6 10 15 <---", q1.toString());
@@ -154,7 +153,7 @@ public class ListenTest {
 
 
     @Test(expected = EmptyStackException.class) // removing every element from a queue
-    public void nullQueue() {
+    public void nullQueueDeque() {
         Queue q4 = new Queue();
         q4.enqueue(55);
         q4.enqueue(95);
@@ -187,7 +186,7 @@ public class ListenTest {
     }
 
     @Test
-    public void queueFirst1() { // asking to return the first element
+    public void queueFirst1() { // asking to return the first element from an existing queue
         assertEquals(4, q1.first());
     }
 
