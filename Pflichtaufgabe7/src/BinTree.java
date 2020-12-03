@@ -103,21 +103,57 @@ public class BinTree {
     }
 
 
-
+    /**
+     * wrapper method to removeNode(int value)
+     * @param value value of the node to be removed
+     * @return true if it is successfully removed
+     */
+    public boolean removeNode(int value) {
+        return true;
+    }
 
 
     /**
      * deletes the node from a sorted binary tree which holds the given value
      * the tree should remain sorted after a node is deleted
-     * @param value hold by the node that is to be deleted
-     * @return true only if the node is in the tree and if its successfully deleted
+     * @param k current node
+     * @param value value of the node to be removed
+     * @return removed node
+     * @throws NullPointerException if removed node is not presented in the tree
      */
-    public boolean removeNode(int value) throws NullPointerException{
-       
-        // TODO
-        return true;
+    public BinNode removeNode(BinNode k, int value) throws NullPointerException{
+        if(k == null){
+            throw new NullPointerException("given value is not in the tree");
+        }
+        if(value < k.data){ // search in left part of the tree if the given value is smaller than the actual value
+            k.left = removeNode(k.left, value);
+        }else if(value > k.data){ // search in right part of the tree if the given value is larger than the actual value
+            k.right = removeNode(k.right, value);
+        }else{ // node to be removed is found
+            if (k.left == null && k.right == null){
+                return null;
+            }else if(k.right == null){
+                return k.left; // replaces the node with its left child
+            }else if(k.left == null){
+                return k.right;  // replaces the node with its right child
+            }else{
+                k.data = minValue(k.right); // finds the smallest node and overwrites the value
+                k.right = removeNode(k.right, k.data); // delete the node form the right subtree
+            }
+        }
+        return k;
     }
-
+    /**
+     * return the minimum value from the tree
+     * @param k given node
+     * @return the minimum value
+     */
+    public int minValue(BinNode k){
+        if (k.left != null){
+            return minValue(k.left);
+        }
+        return k.data;
+    }
 
     /**
      * insert a node in a binary tree

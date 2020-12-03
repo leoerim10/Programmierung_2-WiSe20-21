@@ -31,14 +31,14 @@ public class BinTreeTest {
     @Test
     public void testCountTwoChildrenNodesEmpty() {
         BinTree tree = new BinTree();
-        assertEquals(0, tree.countTwoChildrenNodes(tree.getRoot()));
+        assertEquals(0, tree.countTwoChildrenNodes());
     }
 
     @Test
     public void testCountTwoChildrenNodesRoot() {
         BinNode root = new BinNode(1);
         BinTree tree = new BinTree(root);
-        assertEquals(0, tree.countTwoChildrenNodes(tree.getRoot()));
+        assertEquals(0, tree.countTwoChildrenNodes());
     }
 
     @Test
@@ -52,7 +52,7 @@ public class BinTreeTest {
         tree.insertNode(8);
         tree.insertNode(1);
         tree.insertNode(3);
-        assertEquals(3, tree.countTwoChildrenNodes(tree.getRoot()));
+        assertEquals(3, tree.countTwoChildrenNodes());
     }
 
     @Test
@@ -63,6 +63,7 @@ public class BinTreeTest {
         tree.insertNode(9);
         tree.insertNode(2);
         tree.insertNode(7);
+        tree.insertNode(5);
         assertEquals(2, tree.countTwoChildrenNodes(tree.getRoot()));
     }
 }
