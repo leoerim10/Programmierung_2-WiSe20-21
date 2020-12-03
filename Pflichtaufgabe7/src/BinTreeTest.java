@@ -5,65 +5,41 @@ import org.junit.Test;
 public class BinTreeTest {
 
     @Test
-    public void testCountNodesEmpty() {
+    public void countNodesEmptyTree() { // case 1: with empty tree
         BinTree tree = new BinTree();
-        assertEquals(0, tree.countNodes(tree.getRoot()));
+        assertEquals(0, tree.countTwoChildrenNodes());
     }
 
     @Test
-    public void testCountNodesRoot() {
+    public void countNodesWithOneRoot() { // case 2: with just one root
         BinTree tree = new BinTree();
         tree.insertNode(1);
-        assertEquals(1, tree.countNodes(tree.getRoot()));
+        assertEquals(0, tree.countTwoChildrenNodes());
     }
 
     @Test
-    public void testCountNodes1() {
+    public void countGivenNodes1() { // test for Abb1 which is already sorted
         BinTree tree = new BinTree();
         tree.insertNode(7);
         tree.insertNode(9);
         tree.insertNode(4);
         tree.insertNode(2);
         tree.insertNode(8);
-        assertEquals(5, tree.countNodes(tree.getRoot()));
-    }
-
-    @Test
-    public void testCountTwoChildrenNodesEmpty() {
-        BinTree tree = new BinTree();
-        assertEquals(0, tree.countTwoChildrenNodes());
-    }
-
-    @Test
-    public void testCountTwoChildrenNodesRoot() {
-        BinNode root = new BinNode(1);
-        BinTree tree = new BinTree(root);
-        assertEquals(0, tree.countTwoChildrenNodes());
-    }
-
-    @Test
-    public void testCountTwoChildrenNodes1() {
-        BinTree tree = new BinTree();
-        tree.insertNode(7);
-        tree.insertNode(4);
-        tree.insertNode(9);
-        tree.insertNode(2);
         tree.insertNode(5);
-        tree.insertNode(8);
-        tree.insertNode(1);
         tree.insertNode(3);
+        tree.insertNode(1);
         assertEquals(3, tree.countTwoChildrenNodes());
     }
 
     @Test
-    public void testCountTwoChildrenNodes2() {
+    public void countGivenNodes2() { // test for Abb 2 after sorting
         BinTree tree = new BinTree();
         tree.insertNode(6);
-        tree.insertNode(4);
         tree.insertNode(9);
+        tree.insertNode(4);
         tree.insertNode(2);
         tree.insertNode(7);
-        tree.insertNode(5);
-        assertEquals(2, tree.countTwoChildrenNodes(tree.getRoot()));
+        assertEquals(1, tree.countTwoChildrenNodes());
     }
+
 }

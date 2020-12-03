@@ -118,7 +118,7 @@ public class BinTree {
      * the tree should remain sorted after a node is deleted
      * @param k current node
      * @param value value of the node to be removed
-     * @return removed node
+     * @return removed node0
      * @throws NullPointerException if removed node is not presented in the tree
      */
     public BinNode removeNode(BinNode k, int value) throws NullPointerException{
@@ -159,8 +159,9 @@ public class BinTree {
      * insert a node in a binary tree
      * @param neu the new node to be inserted
      * @param k given node
+     *   TODO document exception
      */
-    private void insertNode(BinNode neu, BinNode k){
+    private void insertNode(BinNode neu, BinNode k)throws IllegalArgumentException{
         if(k != null){
             if(neu.data < k.data){
                 if(k.left == null){
@@ -178,7 +179,7 @@ public class BinTree {
                 }
             }
             if(neu.data == k.data){
-                System.out.println("Knoten vorhanden");
+                throw new IllegalArgumentException("node with this data already exists");
             }
         } else {
             root = neu;
@@ -194,6 +195,24 @@ public class BinTree {
     public void insertNode(int data){
         BinNode n = new BinNode(data);
         insertNode(n, root);
+    }
+
+
+
+
+
+    public void printBinTree(BinNode b){
+        if(b!=null){
+            System.out.print("(");
+            printBinTree(b.left);
+            System.out.print(" " + b.data + " ");
+            printBinTree(b.right);
+            System.out.print(")");
+        }
+    }
+
+    public void printBinTree() { //Verpackungsmethode
+        printBinTree(root);
     }
 
 
