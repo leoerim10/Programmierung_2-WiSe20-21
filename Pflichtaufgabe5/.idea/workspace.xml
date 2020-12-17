@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f63281ec-dfb4-4b21-901b-d7134fc6d3c5" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1kZAXacqpPqa5JgZwjnbA8SWJA2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager">
+    <configuration name="UnitTestReisen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Pflichtaufgabe5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UnitTestReisen" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UnitTestReisen" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f63281ec-dfb4-4b21-901b-d7134fc6d3c5" name="Default Changelist" comment="" />
+      <created>1605897779506</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605897779506</updated>
+    </task>
+    <task id="LOCAL-00001" summary="ready to submit">
+      <created>1605898156022</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605898156022</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ready to submit" />
+    <option name="LAST_COMMIT_MESSAGE" value="ready to submit" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="825" y="88" key="CommitChangelistDialog2" timestamp="1605898154472">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="825" y="88" key="CommitChangelistDialog2/-1366.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1605898154472" />
+    <state x="248" y="86" key="DiffContextDialog" timestamp="1605898529567">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="248" y="86" key="DiffContextDialog/-1366.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1605898529567" />
+    <state x="1060" y="275" key="FileChooserDialogImpl" timestamp="1606070300033">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1060" y="275" key="FileChooserDialogImpl/-1366.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1606070300033" />
+    <state width="2517" height="125" key="GridCell.Tab.0.bottom" timestamp="1605898632689">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="125" key="GridCell.Tab.0.bottom/-1366.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1605898632689" />
+    <state width="2517" height="125" key="GridCell.Tab.0.center" timestamp="1605898632689">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="125" key="GridCell.Tab.0.center/-1366.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1605898632689" />
+    <state width="2517" height="125" key="GridCell.Tab.0.left" timestamp="1605898632689">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="125" key="GridCell.Tab.0.left/-1366.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1605898632689" />
+    <state width="2517" height="125" key="GridCell.Tab.0.right" timestamp="1605898632689">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="125" key="GridCell.Tab.0.right/-1366.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1605898632689" />
+    <state x="781" y="165" key="SettingsEditor" timestamp="1605898128267">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="781" y="165" key="SettingsEditor/-1366.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1605898128267" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605898554198">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-1366.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1605898554198" />
+    <state x="984" y="412" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1605897901557">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="984" y="412" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/-1366.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1605897901557" />
+    <state x="1097" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605898258483">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1097" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1366.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1605898258483" />
+    <state x="1077" y="411" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1605898501996">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1077" y="411" key="git4idea.remote.GitConfigureRemotesDialog/-1366.0.1366.728/0.0.2560.1040@0.0.2560.1040" timestamp="1605898501996" />
+  </component>
+</project>
